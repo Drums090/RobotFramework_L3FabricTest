@@ -29,8 +29,8 @@ Spine Validate Underlay
     \  Log  ${switch_info}
     \  Log  ${spine}
     \  ${target_dictionary}=  Get From Dictionary  ${spines}  ${spine}
-    \  Run Keyword and Continue on Failure  Run Keyword If  '${underlay}' == 'OSPF'  Validate_OSPF_Neighbors  ${target_dictionary}  ${spine}
-    \  Run Keyword and Continue on Failure  Run Keyword If  '${underlay}' == 'BGP'  Validate_Underlay_Peerings  ${target_dictionary}  ${spine}
+    \  Run Keyword If  '${underlay}' == 'OSPF'  Run Keyword and Continue on Failure  Validate_OSPF_Neighbors  ${target_dictionary}  ${spine}
+    \  Run Keyword If  '${underlay}' == 'BGP'  Run Keyword and Continue on Failure  Validate_Underlay_Peerings  ${target_dictionary}  ${spine}
 Spine EVPN Peering Validation
     [Documentation]  Validate EVPN Peerings for Spines
     [Tags]  SPINE_EVPN
