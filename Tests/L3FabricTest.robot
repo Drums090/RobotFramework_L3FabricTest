@@ -51,7 +51,7 @@ Leaf Ping Tests
     \  Log  ${leaf}
     \  ${target_dictionary}=  Get From Dictionary  ${leafs}  ${leaf}
     \  Initiate All Leaf Ping Tests  ${target_dictionary}
-Leaf OSPF Neighbor Validation
+Leaf Undlerlay Validation
     [Documentation]  Validate OSPF Neighbors for Leafs
     [Tags]  LEAF_OSPF
     :FOR  ${leaf}  IN  @{leafs}
@@ -60,7 +60,8 @@ Leaf OSPF Neighbor Validation
     \  Log  ${switch_info}
     \  Log  ${leaf}
     \  ${target_dictionary}=  Get From Dictionary  ${leafs}  ${leaf}
-    \  Validate OSPF Neighbors  ${target_dictionary}  ${leaf}
+    \  Run Keyword If  '${underlay}' == 'OSPF'  Run Keyword and Continue on Failure  Validate OSPF Neighbors  ${target_dictionary}  ${leaf}
+    \  Run Keyword If  '${underlay}' == 'BGP'  Run Keyword and Continue on Failure  Validate Underlay Peerings  ${target_dictionary}  ${leaf}
 Leaf EVPN Peering Validation
     [Documentation]  Validate EVPN Peerings for Leafs
     [Tags]  LEAF_EVPN
