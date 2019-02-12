@@ -7,4 +7,4 @@ Resource  ../../Common/Pings/Initiate_Ping.robot
 Ping Leaf Loopbacks
     :FOR  ${loopback}  IN  @{loopback_ping}
     \  Log  ${loopback}
-    \  Run Keyword And Continue On Failure  Initiate Ping  ${loopback}
+    \  Run Keyword And Continue On Failure  Initiate Ping With Source  ${loopback}  'Loopback0'

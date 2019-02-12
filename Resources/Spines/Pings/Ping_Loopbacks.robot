@@ -7,4 +7,4 @@ Resource  ../../Common/Pings/Initiate_Ping.robot
 Ping Spine Loopbacks
     :FOR  ${loopback}  IN  @{loopback_ping}
     \  Log  ${loopback}
-    \  Run Keyword And Continue On Failure  Initiate Ping  ${loopback}
+    \  Run Keyword And Continue On Failure  Initiate Ping  ${loopback}  'Loopback0'

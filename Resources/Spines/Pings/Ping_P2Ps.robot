@@ -10,4 +10,4 @@ Ping Spine P2Ps
     Log  ${target_dictionary}
     Log  ${p2ps}
     :FOR  ${ip}  IN  @{p2ps}
-    \  Run Keyword And Continue On Failure  Initiate Ping  ${ip}
+    \  Run Keyword And Continue On Failure  Initiate Ping Without Source  ${ip}
