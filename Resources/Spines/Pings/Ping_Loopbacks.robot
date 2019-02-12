@@ -5,7 +5,7 @@ Resource  ../../Common/Pings/Initiate_Ping.robot
 
 *** Keywords ***
 Ping Spine Loopbacks
-    :FOR  ${loopback}  IN  @{loopback_ping}
+    :FOR  ${loopback}  IN  @{loopback_ping_spines}
     \  Log  ${loopback}
     \  ${source}=  Set Variable  Loopback0
     \  Run Keyword And Continue On Failure  Initiate Ping With Source  ${loopback}  ${source}
