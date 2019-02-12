@@ -10,16 +10,16 @@ Suite Setup  Connect to Switches
 Suite Teardown  Clear all Connections
 
 *** Test Cases ***
-Spine Ping Tests
-    [Documentation]  Validate Spines are able to ping p2p and loopbacks
-    [Tags]  SPINE_PING
-    :FOR  ${spine}  IN  @{spines}
-    \  Change To Switch  ${spine}
-    \  ${switch_info}=  Get Switch
-    \  Log  ${switch_info}
-    \  Log  ${spine}
-    \  ${target_dictionary}=  Get From Dictionary  ${spines}  ${spine}
-    \  Initiate All Spine Ping Tests  ${target_dictionary}
+#Spine Ping Tests
+#    [Documentation]  Validate Spines are able to ping p2p and loopbacks
+#    [Tags]  SPINE_PING
+#    :FOR  ${spine}  IN  @{spines}
+#    \  Change To Switch  ${spine}
+#    \  ${switch_info}=  Get Switch
+#    \  Log  ${switch_info}
+#    \  Log  ${spine}
+#    \  ${target_dictionary}=  Get From Dictionary  ${spines}  ${spine}
+#    \  Initiate All Spine Ping Tests  ${target_dictionary}
 Spine Validate Underlay
     [Documentation]  Validate Underlay for Spines based on variables
     [Tags]  SPINE_UNDERLAY
@@ -41,16 +41,16 @@ Spine EVPN Peering Validation
     \  Log  ${spine}
     \  ${target_dictionary}=  Get From Dictionary  ${spines}  ${spine}
     \  Validate EVPN Peerings  ${target_dictionary}  ${spine}
-Leaf Ping Tests
-    [Documentation]  Validate Leafs are able to ping loopbacks
-    [Tags]  LEAF_PING
-    :FOR  ${leaf}  IN  @{leafs}
-    \  Change To Switch  ${leaf}
-    \  ${switch_info}=  Get Switch
-    \  Log  ${switch_info}
-    \  Log  ${leaf}
-    \  ${target_dictionary}=  Get From Dictionary  ${leafs}  ${leaf}
-    \  Initiate All Leaf Ping Tests  ${target_dictionary}
+#Leaf Ping Tests
+#    [Documentation]  Validate Leafs are able to ping loopbacks
+#    [Tags]  LEAF_PING
+#    :FOR  ${leaf}  IN  @{leafs}
+#    \  Change To Switch  ${leaf}
+#    \  ${switch_info}=  Get Switch
+#    \  Log  ${switch_info}
+#    \  Log  ${leaf}
+#    \  ${target_dictionary}=  Get From Dictionary  ${leafs}  ${leaf}
+#    \  Initiate All Leaf Ping Tests  ${target_dictionary}
 Leaf Undlerlay Validation
     [Documentation]  Validate Underlay for Leafs
     [Tags]  LEAF_UNDERLAY
