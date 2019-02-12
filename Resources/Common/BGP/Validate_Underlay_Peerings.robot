@@ -18,7 +18,7 @@ Get Underlay Peers
     Log  ${cmd}
     ${result}=  run keyword and continue on failure  Enable  ${cmd}
     Log  ${result[0]}
-    ${result_dict}=   Get From Dictionary  ${result[0]['result']}  peers
+    ${result_dict}=   Get From Dictionary  ${result[0]['result']['vrfs']['default']}  peers
     Log  ${result_dict}
     [Return]  ${result_dict}
 Initiate Underlay Validation
