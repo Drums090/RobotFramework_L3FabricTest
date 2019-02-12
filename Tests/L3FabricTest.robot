@@ -41,16 +41,15 @@ Spine EVPN Peering Validation
     \  Log  ${spine}
     \  ${target_dictionary}=  Get From Dictionary  ${spines}  ${spine}
     \  Validate EVPN Peerings  ${target_dictionary}  ${spine}
-#Leaf Ping Tests
-#    [Documentation]  Validate Leafs are able to ping loopbacks
-#    [Tags]  LEAF_PING
-#    :FOR  ${leaf}  IN  @{leafs}
-#    \  Change To Switch  ${leaf}
-#    \  ${switch_info}=  Get Switch
-#    \  Log  ${switch_info}
-#    \  Log  ${leaf}
-#    \  ${target_dictionary}=  Get From Dictionary  ${leafs}  ${leaf}
-#    \  Initiate All Leaf Ping Tests  ${target_dictionary}
+Leaf Ping Tests
+    [Documentation]  Validate Leafs are able to ping loopbacks
+    [Tags]  LEAF_PING
+    :FOR  ${leaf}  IN  @{leafs}
+    \  Change To Switch  ${leaf}
+    \  ${switch_info}=  Get Switch
+    \  Log  ${switch_info}
+    \  Log  ${leaf}
+    \  Initiate All Leaf Ping Tests
 Leaf Undlerlay Validation
     [Documentation]  Validate Underlay for Leafs
     [Tags]  LEAF_UNDERLAY
