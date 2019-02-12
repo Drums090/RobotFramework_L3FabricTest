@@ -8,11 +8,11 @@ Library  Collections
 Validate Underlay Peerings
     [Documentation]  Validating Underlay Peerings on Switches
     [Arguments]  ${target_container}  ${switch}
-    ${current_peers}=  Get Peers  ${switch}
+    ${current_peers}=  Get Underlay Peers  ${switch}
     Log  ${current_peers}
     @{target_peers}=  Get From Dictionary  ${target_container}  underlay_peers
     run keyword and continue on failure  Initiate Underlay Validation  ${current_peers}  @{target_peers}
-Get Peers
+Get Underlay Peers
     [Arguments]  ${switch}
     ${cmd}=  Set Variable  show ip bgp summary
     Log  ${cmd}

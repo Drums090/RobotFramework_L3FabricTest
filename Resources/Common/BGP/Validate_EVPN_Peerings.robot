@@ -8,11 +8,11 @@ Library  Collections
 Validate EVPN Peerings
     [Documentation]  Validating EVPN Peerings on Switches
     [Arguments]  ${target_container}  ${switch}
-    ${current_peers}=  Get Peers  ${switch}
+    ${current_peers}=  Get EVPN Peers  ${switch}
     Log  ${current_peers}
     @{target_peers}=  Get From Dictionary  ${target_container}  evpn_peers
     run keyword and continue on failure  Initiate EVPN Validation  ${current_peers}  @{target_peers}
-Get Peers
+Get EVPN Peers
     [Arguments]  ${switch}
     ${cmd}=  Set Variable  show bgp evpn summary
     Log  ${cmd}
