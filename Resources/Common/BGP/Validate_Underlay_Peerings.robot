@@ -5,7 +5,7 @@ Library  Collections
 
 
 *** Keywords ***
-Validate EVPN Peerings
+Validate Underlay Peerings
     [Documentation]  Validating Underlay Peerings on Switches
     [Arguments]  ${target_container}  ${switch}
     ${current_peers}=  Get Peers  ${switch}
