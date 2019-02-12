@@ -12,7 +12,7 @@ Initiate Ping With Source
     Should Be Equal As Integers  ${group1}  0  msg="Packets lost percent not zero!!!"
 Initiate Ping Without Source
     [Arguments]  ${ip}
-    ${output}=  Enable  ping ${ip} source ${source}
+    ${output}=  Enable  ping ${ip}
     ${result}=  Get From Dictionary  ${output[0]}    result
     Log  ${result}
     ${match}    ${group1}=  Should Match Regexp  ${result['messages'][0]}    (\\d+)% packet loss
