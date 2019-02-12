@@ -22,7 +22,7 @@ Spine Ping Tests
     \  Initiate All Spine Ping Tests  ${target_dictionary}
 Spine Validate Underlay
     [Documentation]  Validate Underlay for Spines based on variables
-    [Tags]  Underlay
+    [Tags]  SPINE_UNDERLAY
     :FOR  ${spine}  IN  @{spines}
     \  Change To Switch  ${spine}
     \  ${switch_info}=  Get Switch
@@ -52,8 +52,8 @@ Leaf Ping Tests
     \  ${target_dictionary}=  Get From Dictionary  ${leafs}  ${leaf}
     \  Initiate All Leaf Ping Tests  ${target_dictionary}
 Leaf Undlerlay Validation
-    [Documentation]  Validate OSPF Neighbors for Leafs
-    [Tags]  LEAF_OSPF
+    [Documentation]  Validate Underlay for Leafs
+    [Tags]  LEAF_UNDERLAY
     :FOR  ${leaf}  IN  @{leafs}
     \  Change To Switch  ${leaf}
     \  ${switch_info}=  Get Switch
