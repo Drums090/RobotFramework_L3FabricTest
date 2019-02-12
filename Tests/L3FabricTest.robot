@@ -3,7 +3,9 @@ Resource  ../Resources/Common/Common.robot
 Resource  ../Resources/Spines/Pings/Ping_All.robot
 Resource  ../Resources/Common/OSPF/Validate_OSPF_Neighbors.robot
 Resource  ../Resources/Common/BGP/Validate_EVPN_Peerings.robot
+Resource  ../Resources/Common/BGP/Validate_Underlay_Peerings.robot
 Resource  ../Resources/Leafs/Pings/Ping_All.robot
+
 Suite Setup  Connect to Switches
 Suite Teardown  Clear all Connections
 
@@ -18,16 +20,17 @@ Spine Ping Tests
     \  Log  ${spine}
     \  ${target_dictionary}=  Get From Dictionary  ${spines}  ${spine}
     \  Initiate All Spine Ping Tests  ${target_dictionary}
-Spine OSPF Neighbor Validation
-    [Documentation]  Validate OSPF Neighbors for Spines
-    [Tags]  SPINE_OSPF
+Spine Validate Underlay
+    [Documentation]  Validate Underlay for Spines based on variables
+    [Tags]  Underlay
     :FOR  ${spine}  IN  @{spines}
     \  Change To Switch  ${spine}
     \  ${switch_info}=  Get Switch
     \  Log  ${switch_info}
     \  Log  ${spine}
     \  ${target_dictionary}=  Get From Dictionary  ${spines}  ${spine}
-    \  Validate OSPF Neighbors  ${target_dictionary}  ${spine}
+    \  Run Keyword and Continue on Failure  Run Keyword If  '${underlay}' == 'OSPF'  Validate_OSPF_Neighbors  ${target_dictionary}  ${spine}
+    \  Run Keyword and Continue on Failure  Run Keyword If  '${underlay}' == 'BGP'  Validate_Underlay_Peerings  ${target_dictionary}  ${spine}
 Spine EVPN Peering Validation
     [Documentation]  Validate EVPN Peerings for Spines
     [Tags]  SPINE_EVPN
