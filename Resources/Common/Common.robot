@@ -8,7 +8,7 @@ Variables  ../../Data/Vars/vars.py
 *** Variables ***
 ${TRANSPORT}  https
 ${PORT}  443
-${USERNAME}  admin
+${USERNAME}  cvpadmin
 ${PASSWORD}  arista
 
 
